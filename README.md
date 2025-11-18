@@ -127,6 +127,7 @@ Watch the server console — the POC prints lifecycle events such as `Circuit OP
 <details>
 <summary><h2>🔮 Future Improvements</h2></summary>
 
+- combine the circuit breaker pattern with a retry mechanism so it mimics a perfect setup for real world application and services communication.
 - Add method-level decorator wiring so the `@CircuitBreaker()` decorator automatically applies the circuit.
 - Implement request-level metrics and expose them (Prometheus metrics or a health dashboard).
 - Add a circuit fallback implementation that returns cached or degraded responses instead of throwing.
