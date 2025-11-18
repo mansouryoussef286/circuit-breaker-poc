@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  nestjs:
+    # build:
+    #   target: development
+    image: nestjs-circuit-breaker-api-image-dev:latest #Assigns name to the resulting image
+    container_name: nestjs-dev
+
+# to run: 
+#   docker-compose up {add a service name to only run it}
+#   to run with image build: docker-compose up --build
+#   find the api in browser at: http://127.0.0.1:3005/swagger
+
+# run dev containers
+# docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build -d && docker-compose logs -f nestjs
+# docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build -d && docker-compose logs -f nestjs
+
+# run prod containers
+# docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d && docker-compose logs -f nestjs --tail 100

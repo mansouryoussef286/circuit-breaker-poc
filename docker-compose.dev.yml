@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  nestjs:
+    build:
+      target: development
+    image: nestjs-circuit-breaker-api-image-dev:latest #Assigns name to the resulting image
+    container_name: nestjs-dev
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules # Prevents local node_modules from overwriting container's
+    ports:
+      - "3005:3005"
+    command: [ "npm", "run", "start:dev" ]
+    environment:
+      NODE_ENV: development
