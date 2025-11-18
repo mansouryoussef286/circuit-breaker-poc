@@ -118,6 +118,8 @@ Watch the server console — the POC prints lifecycle events such as `Circuit OP
 - `CircuitBreakerService` stores circuit instances in a map keyed by string; this avoids creating duplicate circuits and centralizes event listeners.
 - Default `opossum` options are defined (timeout, errorThresholdPercentage, rollingCountTimeout, volumeThreshold, resetTimeout) and can be overridden per-circuit.
 - `CircuitBreakerHttpService.get()` wraps an `HttpService` call with a function that the circuit executes via `FireCircuit`.
+- `circuit.fire` only fires when the circuit is `close` otherwise it defaults to the cache or the default `fallback` function.
+- Also note that `circuit.fallback` method is called whenever a fire event promise is rejected, so it runs even if the circuit is open.
 - `AppService` toggles the randomness to simulate healthy and unhealthy downstream services; the toggles change generated ID ranges so the `jsonplaceholder` call may hang or error.
 
 </details>
